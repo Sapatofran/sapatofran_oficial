@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Sapatofran - Calçados">
+    <meta property="og:description" content="Sapatofran está disponível nos principais marketplaces do Brasil, temos calçados para todos os gostos e todos os públicos, sempre com qualidade e estilo. Conheça a nossa coleção e compre no canal da sua preferência.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://sapatofran.com/og-image.jpg">
+    <meta name="keywords" content="Sapatofran, calçados, tênis, botas, coturnos, sapatos, moda, conforto, qualidade, marketplaces, calçados femininos, calçados masculinos, calçados infantis, sapatos online, comprar calçados, loja de calçados, sapatos de qualidade, sapatos confortáveis, sapatos estilosos, sapatos para todas as ocasiões, sapatos para homens, sapatos para mulheres, sapatos para crianças, sapatos de moda, sapatos de tendência, sapatos de marca própria, sapatos exclusivos, sapatos de design, sapatos de alta qualidade, sapatos duráveis, sapatos elegantes, sapatos casuais, sapatos esportivos, sapatos para trabalho, sapatos para lazer, sapatos para festas, sapatos para eventos especiais">
+    <meta name="author" content="ASC">
+    <meta name="robots" content="index, follow">
+
+    <title>Sapatofran - Calçados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            --preto: #0D0D0D;
+            --preto-suave: #171717;
+            --vermelho: #7A1220;
+            --vermelho-vivo: #B31F2E;
+            --osso: #F7F5F2;
+            --osso-2: #EFEBE5;
+            --chumbo: #4A4A4A;
+            --linha: #E4E1DC;
+            --branco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--osso);
+            color: var(--preto);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border: none;
+        }
+
+        .display {
+            font-family: 'Archivo Black', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            line-height: 1.05;
+        }
+
+        .eyebrow {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--vermelho-vivo);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+        }
+
+        /* Barra de assinatura — ecoa as barras do logo */
+        .bar-row {
+            display: flex;
+            width: 100%;
+            height: 10px;
+        }
+
+        .bar-row span {
+            flex: 1;
+        }
+
+        .bar-row span:nth-child(1) {
+            background: var(--preto);
+            flex: 1.6;
+        }
+
+        .bar-row span:nth-child(2) {
+            background: var(--vermelho);
+            flex: 1;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(13, 13, 13, 0.92);
+            backdrop-filter: blur(6px);
+        }
+
+        .nav-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-lockup {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-lockup img {
+            height: 50px;
+            width: auto;
+            display: block;
+        }
+
+        .brand-lockup .lockup-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .brand-lockup .lockup-bars span {
+            display: block;
+            height: 3px;
+            border-radius: 1px;
+        }
+
+        .brand-lockup .lockup-bars span:nth-child(1) {
+            width: 22px;
+            background: var(--osso);
+            opacity: .9;
+        }
+
+        .brand-lockup .lockup-bars span:nth-child(2) {
+            width: 14px;
+            background: var(--vermelho-vivo);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--osso);
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            opacity: 0.85;
+            transition: opacity .2s, color .2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+            color: var(--vermelho-vivo);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: var(--preto);
+            color: var(--osso);
+            padding: 96px 24px 88px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            margin: 0 auto 40px;
+            padding: 14px 22px;
+            background: rgba(247, 245, 242, 0.04);
+            border: 1px solid rgba(247, 245, 242, 0.14);
+            border-radius: 3px;
+            position: relative;
+            animation: fadeUp .7s ease both;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.25rem;
+            font-weight: 570;
+            letter-spacing: 3px;
+        }
+
+        .hero-badge::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 3px;
+            padding: 1px;
+            background: linear-gradient(120deg, rgba(179, 31, 46, 0.55), rgba(247, 245, 242, 0) 55%);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .hero-badge .lockup-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hero-badge .lockup-bars span {
+            display: block;
+            height: 4px;
+            border-radius: 1px;
+        }
+
+        .hero-badge .lockup-bars.left span:nth-child(1) {
+            width: 26px;
+            background: var(--vermelho-vivo);
+        }
+
+        .hero-badge .lockup-bars.left span:nth-child(2) {
+            width: 16px;
+            background: rgba(247, 245, 242, 0.35);
+        }
+
+        .hero-badge .lockup-bars.right span:nth-child(1) {
+            width: 16px;
+            background: rgba(247, 245, 242, 0.35);
+            margin-left: auto;
+        }
+
+        .hero-badge .lockup-bars.right span:nth-child(2) {
+            width: 26px;
+            background: var(--vermelho-vivo);
+            margin-left: auto;
+        }
+
+        .hero-logo {
+            height: 38px;
+            width: auto;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-badge {
+                animation: none;
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 6vw, 4.6rem);
+            max-width: 900px;
+            margin: 0 auto;
+            color: var(--branco);
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--vermelho-vivo);
+        }
+
+        .hero p {
+            max-width: 520px;
+            margin: 24px auto 0;
+            color: #C9C6C1;
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            margin-top: 40px;
+            display: inline-flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: transform .18s ease, background .18s ease, color .18s ease, box-shadow .18s ease;
+        }
+
+        .btn-primary {
+            background: var(--vermelho);
+            color: var(--branco);
+        }
+
+        .btn-primary:hover {
+            background: var(--vermelho-vivo);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #4A4744;
+            color: var(--osso);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--osso);
+            transform: translateY(-2px);
+        }
+
+        /* ===== SEÇÃO PRODUTOS ===== */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 88px 24px;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 44px;
+            flex-wrap: wrap;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+            margin-top: 10px;
+        }
+
+        .carousel-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-btn {
+            width: 46px;
+            height: 46px;
+            border: 1.5px solid var(--preto);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .18s, color .18s, transform .18s;
+        }
+
+        .carousel-btn:hover {
+            background: var(--preto);
+            color: var(--osso);
+            transform: translateY(-2px);
+        }
+
+        .carousel-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .carousel {
+            display: flex;
+            gap: 22px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 12px;
+            scrollbar-width: none;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel.is-clone-jumping {
+            scroll-snap-type: none;
+        }
+
+        .card {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 280px;
+            background: var(--branco);
+            border: 1px solid var(--linha);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-media {
+            aspect-ratio: 1/1;
+            background: var(--osso-2);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--linha);
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            padding: 16px;
+            background:
+                repeating-linear-gradient(45deg, #E9E5DF, #E9E5DF 10px, #F1EEE9 10px, #F1EEE9 20px);
+            color: var(--chumbo);
+        }
+
+        .placeholder svg {
+            width: 30px;
+            height: 30px;
+            opacity: .55;
+        }
+
+        .placeholder .ph-file {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            background: var(--branco);
+            border: 1px dashed #B7B2AA;
+            padding: 4px 8px;
+        }
+
+        .placeholder .ph-hint {
+            font-size: 0.68rem;
+            color: #7A756D;
+            max-width: 180px;
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .card-body h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .card-body .price {
+            font-size: 0.88rem;
+            color: var(--chumbo);
+        }
+
+        .card-buy {
+            margin-top: auto;
+            width: 100%;
+            background: var(--preto);
+            color: var(--osso);
+            padding: 12px 16px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background .18s;
+        }
+
+        .card-buy:hover {
+            background: var(--vermelho);
+        }
+
+        .card-buy svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .botaoSF {
+            margin-top: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(225deg, var(--preto) 0%, var(--preto-suave) 45%, var(--vermelho) 70%, var(--vermelho-vivo) 100%);
+            transition: transform .18s ease, filter .18s ease;
+        }
+
+        .botaoSF:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== FAIXA DE MARCA ===== */
+        .brand-strip {
+            background: var(--osso-2);
+            border-top: 1px solid var(--linha);
+            border-bottom: 1px solid var(--linha);
+            padding: 56px 24px;
+            text-align: center;
+        }
+
+        .brand-strip p {
+            max-width: 640px;
+            margin: 14px auto 0;
+            color: var(--chumbo);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .brand-strip h2 {
+            font-size: clamp(1.5rem, 3vw, 2.1rem);
+        }
+
+        .marketplaces {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .mk-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            min-height: 50px;
+            padding: 10px 14px 10px 10px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+        }
+
+        .mk-chip i {
+            font-size: 0.9rem;
+        }
+
+        .mk-external {
+            margin-left: 2px;
+            font-size: 1rem;
+            line-height: 1;
+            opacity: .72;
+        }
+
+        .mk-chip:hover {
+            transform: translateY(-3px);
+            filter: saturate(1.08);
+            box-shadow: 0 10px 20px rgba(13, 13, 13, 0.16);
+        }
+
+        .mk-chip:focus-visible {
+            outline: 3px solid rgba(179, 31, 46, .45);
+            outline-offset: 3px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--preto);
+            color: #B9B6B1;
+            padding: 56px 24px 30px;
+            text-align: center;
+        }
+
+        footer img {
+            height: 30px;
+            margin: 0 auto 18px;
+        }
+
+        footer p {
+            font-size: 0.82rem;
+        }
+
+        footer .small {
+            margin-top: 22px;
+            font-size: 0.72rem;
+            color: #6E6B67;
+        }
+
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(13, 13, 13, 0.72);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 100;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--branco);
+            width: 100%;
+            max-width: 380px;
+            padding: 32px 28px 28px;
+            position: relative;
+            animation: pop .18s ease;
+        }
+
+        @keyframes pop {
+            from {
+                transform: scale(.96);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-box h3 {
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+
+        .modal-box .modal-sub {
+            font-size: 0.82rem;
+            color: var(--chumbo);
+            margin-bottom: 22px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background .15s;
+        }
+
+        .modal-close:hover {
+            background: var(--osso-2);
+        }
+
+        .modal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mk-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 16px;
+            border: 1.5px solid var(--preto);
+            border-left-width: 5px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            transition: transform .16s ease, box-shadow .16s ease;
+        }
+
+        .mk-link:hover {
+            transform: translateX(3px);
+            box-shadow: 0 6px 14px rgba(13, 13, 13, 0.1);
+        }
+
+        .mk-link .mk-icon {
+            width: 30px;
+            height: 30px;
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 0.95rem;
+        }
+
+        .mk-link .mk-name {
+            flex: 1;
+        }
+
+        .mk-link svg {
+            width: 14px;
+            height: 14px;
+            opacity: .6;
+        }
+
+        .modal-empty {
+            font-size: 0.85rem;
+            color: var(--chumbo);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        @media (max-width:640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .card {
+                width: 230px;
+            }
+
+            .section {
+                padding: 64px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-wrap">
+            <a href="#" class="brand-lockup" aria-label="Sapatofran">
+                <img src="logoBR.png" alt="Sapatofran">
+            </a>
+            <nav class="nav-links">
+                <a href="SFprodutos.html">Produtos</a>
+                <a href="#marca">A marca</a>
+                <a href="#marketplaces">Onde comprar</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="lockup-bars left"><span></span><span></span></span>
+            <img class="hero-logo" src="logoBR.png" alt="Sapatofran">
+            <span class="lockup-bars right"><span></span><span></span></span>
+        </div>
+        <h1 class="display">Calçados feitos<br>para <em>quem anda</em> na frente</h1>
+        <p>A Sapatofran é presença garantida nos principais marketplaces do Brasil. Conheça a coleção e compre no canal
+            da sua preferência.</p>
+        <div class="hero-cta">
+            <a href="SFprodutos.html" class="btn btn-primary">Ver coleção</a>
+            <a href="#marketplaces" class="btn btn-outline">Onde comprar</a>
+        </div>
+    </section>
+
+    <div class="bar-row"><span></span><span></span></div>
+
+    <section class="section" id="produtos">
+        <div class="section-head">
+            <div>
+                <p class="eyebrow">Coleção</p>
+                <h2 class="display">Destaques da loja</h2>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" id="prevBtn" aria-label="Anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="carousel-btn" id="nextBtn" aria-label="Próximo">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="carousel" id="carousel"></div>
+
+        <div>
+            <a href="SFprodutos.html" class="botaoSF btn btn-outline">Ver todos os produtos</a>
+        </div>
+    </section>
+
+    <section class="brand-strip" id="marca">
+        <p class="eyebrow">A marca</p>
+        <h2 style="font-family: 'Courier new', monospace; font-weight: 700;font-size: 2.5rem; letter-spacing: 0.2rem;">SAPATOFRAN</h2>
+        <p>Marca própria de calçados, disponível nos maiores marketplaces do país. Qualidade e conforto em cada par, no
+            canal que você já confia.</p>
+        <div class="marketplaces" id="marketplaces">
+            <!-- preenchido via JS com a lista de marketplaces -->
+        </div>
+
+    </section>
+
+    <footer>
+        <img src="logoBR.png" alt="Sapatofran">
+        <p>Sapatofran — calçados nos principais marketplaces do Brasil.</p>
+        <p class="small">© <span id="year"></span> Sapatofran. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- ===== MODAL DE COMPRA ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 id="modalTitle">Produto</h3>
+            <p class="modal-sub">Escolha onde comprar:</p>
+            <div class="modal-links" id="modalLinks"></div>
+        </div>
+    </div>
+
+    <script>
+        /* ============================================================
+           ÁREA DE CONFIGURAÇÃO — EDITE AQUI
+           ============================================================
+           1) FOTOS: troque o valor "image" pelo caminho do arquivo real.
+              Coloque os arquivos dentro de uma pasta "images/" ao lado
+              deste index.html (ex: images/produto-1.jpg).
+              Enquanto o arquivo não existir, a página mostra
+              automaticamente um espaço reservado com o nome esperado.
+        
+           2) LINKS: preencha apenas os marketplaces em que o produto
+              está disponível. Deixe "" (vazio) nos que não se aplicam —
+              o botão daquele marketplace simplesmente não aparece.
+           ============================================================ */
+
+        const products = [
+            {
+                name: "Bota Coturno Militar Areia",
+                image: "images/4093-A.jpg",
+                category: "Masculino",
+                line: "Militares",
+                price: "",
+                links: {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-3958838417-bota-coturno-militar-masculino-areia-adventure-confortavel-_JM",
+                    "Shopee": "", 
+                    "Shein": "", 
+                    "TikTok Shop": "", 
+                    "Dafiti": "", 
+                    "Magalu": "", 
+                    "Netshoes": "", 
+                    "Temu": "", 
+                    "Kwai": ""
+                }
+            },
+            {
+                name: "Tênis Masculino Casual",
+                image: "images/1313.jpg",
+                category: "Masculino",
+                line: "Tênis",
+                price: "",
+                links: {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-3964887081-tnis-masculino-sapatnis-casual-confortavel-estiloso-_JM",
+                    "Shopee": "", 
+                    "Shein": "", 
+                    "TikTok Shop": "", 
+                    "Dafiti": "", 
+                    "Magalu": "", 
+                    "Netshoes": "", 
+                    "Temu": "", 
+                    "Kwai": ""
+                }
+            },
+            {
+                name: "Coturno Feminino Cano Baixo",
+                image: "images/261.jpg",
+                category: "Feminino",
+                line: "Botas",
+                price: "",
+                links: {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5282711226-coturno-feminino-cano-baixo-solado-tratorado-fivela-outono-_JM",
+                    "Shopee": "", 
+                    "Shein": "", 
+                    "TikTok Shop": "", 
+                    "Dafiti": "", 
+                    "Magalu": "", 
+                    "Netshoes": "", 
+                    "Temu": "", 
+                    "Kwai": ""
+                }
+            },
+            {
+                name: "Tênis Feminino Esportivo Confortável",
+                image: "images/409PtoPink.jpg",
+                category: "Feminino",
+                line: "Tênis",
+                price: "",
+                links: {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5247458898-tnis-feminino-polo-respiravel-sapatofran-corrida-caminhada-_JM",
+                    "Shopee": "", 
+                    "Shein": "", 
+                    "TikTok Shop": "", 
+                    "Dafiti": "", 
+                    "Magalu": "", 
+                    "Netshoes": "", 
+                    "Temu": "", 
+                    "Kwai": ""
+                }
+            },
+            {
+                name: "Sapatênis Masculino Confortável",
+                image: "images/3260.png",
+                category: "Masculino",
+                line: "Social",
+                price: "",
+                links: {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5770606210-sapatenis-masculino-casual-esporte-fino-trabalho-confortavel-_JM",
+                    "Shopee": "", 
+                    "Shein": "", 
+                    "TikTok Shop": "", 
+                    "Dafiti": "", 
+                    "Magalu": "", 
+                    "Netshoes": "", 
+                    "Temu": "", 
+                    "Kwai": ""
+                }
+            },
+            {
+                name: "Tênis Rodinha Infantil Menino",
+                image: "images/2502.jpg",
+                category: "Masculino",
+                line: "Infantil",
+                price: "",
+                links: {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5124806492-tnis-rodinha-infantil-meninos-divertido-removivel-estiloso-_JM", 
+                    "Shopee": "", 
+                    "Shein": "", 
+                    "TikTok Shop": "", 
+                    "Dafiti": "", 
+                    "Magalu": "", 
+                    "Netshoes": "", 
+                    "Temu": "", 
+                    "Kwai": ""
+                }
+            },
+            {
+                name: "Tênis Rodinha Infantil Menina",
+                image: "images/2502MA.jpg",
+                category: "Feminino",
+                line: "Infantil",
+                price: "",
+                links: {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5124830528-tnis-rodinha-infantil-meninas-divertido-removivel-estiloso-_JM", 
+                    "Shopee": "", 
+                    "Shein": "", 
+                    "TikTok Shop": "", 
+                    "Dafiti": "", 
+                    "Magalu": "", 
+                    "Netshoes": "", 
+                    "Temu": "", 
+                    "Kwai": ""
+                }
+            },
+            {
+                name: "Tênis Feminino Casual Branco",
+                image: "images/9085.jpg",
+                category: "Feminino",
+                line: "Tênis",
+                price: "",
+                links: {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5665638658-tnis-feminino-casual-branco-academia-classico-original-leve-_JM",
+                    "Shopee": "", 
+                    "Shein": "", 
+                    "TikTok Shop": "", 
+                    "Dafiti": "", 
+                    "Magalu": "", 
+                    "Netshoes": "", 
+                    "Temu": "", 
+                    "Kwai": ""
+                }
+            }
+        ];
+
+        /* ============================================================
+           A partir daqui é só a lógica da página — não precisa mexer
+           ============================================================ */
+
+        /* ============================================================
+           PALETA DOS MARKETPLACES
+           ============================================================
+           O FontAwesome (free) não possui o logo oficial de todos esses
+           marketplaces — apenas o TikTok tem um ícone de marca dedicado.
+           Para os demais, usamos um ícone de sacola/loja consistente,
+           mas cada botão ganha as cores aproximadas da marca. Se você
+           tiver os hex exatos da identidade de cada marketplace, é só
+           trocar os valores de "bg"/"fg" abaixo.
+           ============================================================ */
+        const marketplaceStyle = {
+            "Mercado Livre":
+            {
+                mark: "ML",
+                icon: "fa-solid fa-handshake",
+                bg: "#FFE600",
+                fg: "#2D3277",
+                url: "https://www.mercadolivre.com.br/loja/sapatofran"
+            },
+            "Shopee":
+            {
+                mark: "SP",
+                icon: "fa-solid fa-bag-shopping",
+                bg: "#EE4D2D",
+                fg: "#FFFFFF",
+                url: "https://shopee.com.br/sapatofran"
+            },
+            "Shein":
+            {
+                mark: "S",
+                icon: "fa-solid fa-shirt",
+                bg: "#0D0D0D",
+                fg: "#FFFFFF",
+                url: "https://m.shein.com/br/SF-Cal%C3%A7ados-store-6711334809.html?ref=br&rep=dir&ret=mbr"
+            },
+            "TikTok Shop":
+            {
+                mark: "TK",
+                icon: "fa-brands fa-tiktok",
+                bg: "#9C1010",
+                fg: "#FFFFFF",
+                url: "https://shop.tiktok.com/br/search?keyword=Sapatofran"
+            },
+            "Dafiti":
+            {
+                mark: "D",
+                icon: "fa-solid fa-d",
+                bg: "#828282",
+                fg: "#FFFFFF",
+                url: "https://www.dafiti.com.br/calcados-masculinos/sapatofran/"
+            },
+            "Magalu":
+            {
+                mark: "MG",
+                icon: "fa-solid fa-store",
+                bg: "#0086FF",
+                fg: "#FFFFFF",
+                url: "https://www.magazineluiza.com.br/busca/sapatofran/"
+            },
+            "Netshoes":
+            {
+                mark: "NS",
+                icon: "fa-solid fa-person-running",
+                bg: "#7A11BA",
+                fg: "#FFFFFF",
+                url: "https://www.netshoes.com.br/lojista/sapatofran"
+            },
+            "Temu":
+            {
+                mark: "T",
+                icon: "fa-solid fa-tags",
+                bg: "#FF6A00",
+                fg: "#FFFFFF",
+                url: "https://www.temu.com/br-en/search_result.html?search_key=Sapatofran"
+            },
+            "Kwai":
+            {
+                mark: "K",
+                icon: "fa-solid fa-film",
+                bg: "#C7422A",
+                fg: "#FFFFFF",
+                url: "https://www.kwai.com/search?searchKey=Sapatofran"
+            }
+        };
+
+        const carousel = document.getElementById('carousel');
+        const marketplacesRow = document.getElementById('marketplaces');
+
+        const bagIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg>`;
+        const arrowIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7v8"/></svg>`;
+        const imgIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>`;
+
+        // Renderiza os cards de produto
+        products.forEach((p, i) => {
+            const hasFile = p.image && p.image.trim() !== "";
+            const fileName = hasFile ? p.image.split('/').pop() : '';
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                                <div class="card-media">
+                                <img src="${p.image}" alt="${p.name}" loading="lazy"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="placeholder" style="display:none;">
+                                    ${imgIcon}
+                                    <span class="ph-file">${fileName}</span>
+                                    <span class="ph-hint">Coloque a foto do produto aqui (quadrada, ideal 800×800px)</span>
+                                </div>
+                                </div>
+                                <div class="card-body">
+                                <h3>${p.name}</h3>
+                                ${p.price ? `<div class="price">${p.price}</div>` : ''}
+                                <button class="card-buy" data-index="${i}">Comprar ${arrowIcon}</button>
+                                </div>
+                            `;
+            carousel.appendChild(card);
+
+            // Como a imagem pode não existir ainda, força a checagem também
+            // pro caso do onerror não disparar (ex: cache).
+            const imgEl = card.querySelector('img');
+            const img = new Image();
+            img.onerror = () => {
+                imgEl.style.display = 'none';
+                imgEl.nextElementSibling.style.display = 'flex';
+            };
+            img.src = p.image;
+        });
+
+        // Faixa de marketplaces (cada card leva direto à vitrine ou busca da marca)
+        Object.entries(marketplaceStyle).forEach(([name, style]) => {
+            const chip = document.createElement('a');
+            chip.className = 'mk-chip';
+            chip.href = style.url;
+            chip.target = '_blank';
+            chip.rel = 'noopener noreferrer';
+            chip.style.background = style.bg;
+            chip.style.color = style.fg;
+            chip.style.borderColor = style.bg;
+            chip.setAttribute('aria-label', `Comprar Sapatofran na ${name}`);
+            chip.innerHTML = `
+                <i class="${style.icon}" aria-hidden="true"></i>
+                <span>${name}</span>
+                <span class="mk-external" aria-hidden="true">↗</span>`;
+            marketplacesRow.appendChild(chip);
+        });
+
+        // ===== Carrossel infinito com autoplay =====
+        // Clona o conjunto de produtos uma vez e o encosta no final da trilha.
+        // Quando o scroll ultrapassa o conjunto original, ele "teleporta"
+        // de volta ao início sem transição — como os cards clonados são
+        // idênticos aos originais, o salto é imperceptível e o efeito
+        // parece um loop contínuo.
+        const originalCards = Array.from(carousel.children);
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            carousel.appendChild(clone);
+        });
+
+        let step = 0;          // largura de um card + gap
+        let setWidth = 0;       // largura total do conjunto original
+        const AUTOPLAY_MS = 6000;
+        let autoplayTimer = null;
+        let resumeTimer = null;
+
+        function measureCarousel() {
+            const first = carousel.children[0];
+            if (!first) return;
+            const gap = parseFloat(getComputedStyle(carousel).columnGap || getComputedStyle(carousel).gap) || 22;
+            step = first.getBoundingClientRect().width + gap;
+            setWidth = step * originalCards.length;
+        }
+
+        function loopIfNeeded() {
+            // Já passamos do conjunto original: volta pro início sem animar
+            // (o conjunto clonado é idêntico, então o salto é invisível).
+            if (carousel.scrollLeft >= setWidth - 1) {
+                carousel.classList.add('is-clone-jumping');
+                carousel.scrollLeft -= setWidth;
+                void carousel.offsetHeight; // força reflow antes de reabilitar o snap suave
+                carousel.classList.remove('is-clone-jumping');
+            }
+        }
+
+        function advanceCarousel() {
+            carousel.scrollBy({ left: step, behavior: 'smooth' });
+        }
+
+        function goPrev() {
+            if (carousel.scrollLeft <= 0) {
+                // já está no início visual: pula pro "fim" do conjunto clonado antes de recuar
+                carousel.classList.add('is-clone-jumping');
+                carousel.scrollLeft += setWidth;
+                void carousel.offsetHeight;
+                carousel.classList.remove('is-clone-jumping');
+            }
+            carousel.scrollBy({ left: -step * 2, behavior: 'smooth' });
+        }
+
+        function goNext() {
+            carousel.scrollBy({ left: step * 2, behavior: 'smooth' });
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            autoplayTimer = setInterval(advanceCarousel, AUTOPLAY_MS);
+        }
+        function stopAutoplay() {
+            if (autoplayTimer) clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+        // Pausa o autoplay por um tempo depois de uma interação manual,
+        // e retoma sozinho em seguida.
+        function pauseThenResume() {
+            stopAutoplay();
+            clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(startAutoplay, AUTOPLAY_MS);
+        }
+
+        // Detecta o fim do scroll suave (nativo em navegadores recentes,
+        // com um fallback por tempo para os demais) para fazer o teleporte.
+        let scrollEndFallback = null;
+        carousel.addEventListener('scroll', () => {
+            clearTimeout(scrollEndFallback);
+            scrollEndFallback = setTimeout(loopIfNeeded, 220);
+        });
+        carousel.addEventListener('scrollend', loopIfNeeded);
+
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+        carousel.addEventListener('touchstart', pauseThenResume, { passive: true });
+
+        document.getElementById('prevBtn').addEventListener('click', () => { goPrev(); pauseThenResume(); });
+        document.getElementById('nextBtn').addEventListener('click', () => { goNext(); pauseThenResume(); });
+
+        window.addEventListener('resize', measureCarousel);
+
+        // Espera as imagens/placeholders assentarem antes de medir e começar.
+        requestAnimationFrame(() => {
+            measureCarousel();
+            startAutoplay();
+        });
+
+        // Modal de compra
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalLinks = document.getElementById('modalLinks');
+
+        carousel.addEventListener('click', (e) => {
+            const btn = e.target.closest('.card-buy');
+            if (!btn) return;
+            const product = products[btn.dataset.index];
+            openModal(product);
+        });
+
+        function openModal(product) {
+            modalTitle.textContent = product.name;
+            modalLinks.innerHTML = '';
+
+            const validLinks = Object.entries(product.links).filter(([_, url]) => url && url.trim() !== '');
+
+            if (validLinks.length === 0) {
+                modalLinks.innerHTML = `<p class="modal-empty">Nenhum link cadastrado ainda para este produto.</p>`;
+            } else {
+                validLinks.forEach(([name, url]) => {
+                    const style = marketplaceStyle[name] || { icon: "fa-solid fa-store", bg: "#0D0D0D", fg: "#FFFFFF" };
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                    a.className = 'mk-link';
+                    a.style.borderLeftColor = style.bg;
+                    a.innerHTML = `
+        <span class="mk-icon" style="background:${style.bg};color:${style.fg}"><i class="${style.icon}"></i></span>
+        <span class="mk-name">${name}</span>
+        ${arrowIcon}
+      `;
+                    modalLinks.appendChild(a);
+                });
+            }
+
+            modalOverlay.classList.add('open');
+        }
+
+        document.getElementById('modalClose').addEventListener('click', () => modalOverlay.classList.remove('open'));
+        modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) modalOverlay.classList.remove('open'); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') modalOverlay.classList.remove('open'); });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

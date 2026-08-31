@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Conheça todos os produtos Sapatofran e encontre seu próximo par nos marketplaces parceiros.">
+    <title>Produtos — Sapatofran</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            --preto: #0D0D0D;
+            --preto-suave: #171717;
+            --vermelho: #7A1220;
+            --vermelho-vivo: #B31F2E;
+            --osso: #F7F5F2;
+            --osso-2: #EFEBE5;
+            --chumbo: #4A4A4A;
+            --linha: #E4E1DC;
+            --branco: #FFFFFF;
+            --sombra: 0 18px 42px rgba(13, 13, 13, .08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: var(--osso);
+            color: var(--preto);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: 0;
+            background: none;
+        }
+
+        .display {
+            font-family: 'Archivo Black', sans-serif;
+            font-weight: 400;
+            letter-spacing: .02em;
+            line-height: 1.05;
+        }
+
+        .eyebrow {
+            color: var(--vermelho-vivo);
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .28em;
+            text-transform: uppercase;
+        }
+
+        .bar-row {
+            display: flex;
+            width: 100%;
+            height: 10px;
+        }
+
+        .bar-row span {
+            flex: 1;
+        }
+
+        .bar-row span:first-child {
+            flex: 1.6;
+            background: var(--preto);
+        }
+
+        .bar-row span:last-child {
+            background: var(--vermelho);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            color: var(--osso);
+            background: rgba(13, 13, 13, .94);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand-lockup {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-lockup img {
+            width: auto;
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--osso);
+            font-size: .82rem;
+            font-weight: 600;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            opacity: .82;
+            transition: color .18s, opacity .18s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] {
+            color: var(--vermelho-vivo);
+            opacity: 1;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #C9C6C1;
+            font-size: .8rem;
+            font-weight: 600;
+            transition: color .18s;
+        }
+
+        .nav-back:hover {
+            color: var(--branco);
+        }
+
+        .page-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 86px 24px 78px;
+            color: var(--osso);
+            background:
+                radial-gradient(circle at 85% 18%, rgba(179, 31, 46, .22), transparent 28%),
+                linear-gradient(135deg, var(--preto), var(--preto-suave));
+        }
+
+        .page-hero::after {
+            content: "";
+            position: absolute;
+            right: -90px;
+            bottom: -180px;
+            width: 420px;
+            height: 420px;
+            border: 1px solid rgba(247, 245, 242, .12);
+            transform: rotate(45deg);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-hero h1 {
+            max-width: 760px;
+            margin-top: 14px;
+            color: var(--branco);
+            font-size: clamp(2.4rem, 6vw, 4.8rem);
+        }
+
+        .page-hero h1 em {
+            color: var(--vermelho-vivo);
+            font-style: normal;
+        }
+
+        .page-hero p {
+            max-width: 600px;
+            margin-top: 22px;
+            color: #C9C6C1;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .products-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 72px 24px 96px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 28px;
+            margin-bottom: 30px;
+        }
+
+        .section-heading h2 {
+            margin-top: 10px;
+            font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+        }
+
+        .results-count {
+            color: var(--chumbo);
+            font-size: .84rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+            align-items: end;
+            gap: 14px;
+            padding: 18px;
+            margin-bottom: 36px;
+            border: 1px solid var(--linha);
+            background: var(--branco);
+            box-shadow: 0 8px 24px rgba(13, 13, 13, .04);
+        }
+
+        .filter-field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .filter-field label {
+            color: var(--chumbo);
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .filter-field select {
+            min-height: 46px;
+            padding: 0 38px 0 14px;
+            appearance: none;
+            color: var(--preto);
+            border: 1px solid var(--linha);
+            border-radius: 0;
+            outline: none;
+            background:
+                linear-gradient(45deg, transparent 50%, var(--chumbo) 50%) calc(100% - 18px) 20px / 6px 6px no-repeat,
+                linear-gradient(135deg, var(--chumbo) 50%, transparent 50%) calc(100% - 13px) 20px / 6px 6px no-repeat,
+                var(--osso);
+            transition: border-color .18s, box-shadow .18s;
+        }
+
+        .filter-field select:focus {
+            border-color: var(--vermelho-vivo);
+            box-shadow: 0 0 0 3px rgba(179, 31, 46, .12);
+        }
+
+        .clear-filters {
+            min-height: 46px;
+            padding: 0 18px;
+            color: var(--branco);
+            background: var(--preto);
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: background .18s, transform .18s;
+        }
+
+        .clear-filters:hover {
+            background: var(--vermelho);
+            transform: translateY(-2px);
+        }
+
+        .clear-filters:active {
+            transform: scale(.98);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            display: flex;
+            min-width: 0;
+            flex-direction: column;
+            overflow: hidden;
+            background: var(--branco);
+            border: 1px solid var(--linha);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra);
+        }
+
+        .card-media {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: var(--osso-2);
+            border-bottom: 1px solid var(--linha);
+        }
+
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .35s ease;
+        }
+
+        .card:hover .card-media img {
+            transform: scale(1.035);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 6px 8px;
+            color: var(--branco);
+            background: var(--vermelho);
+            font-size: .64rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .card-body {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 14px;
+            padding: 18px;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            padding: 5px 7px;
+            color: var(--vermelho);
+            background: #F8ECEE;
+            font-size: .64rem;
+            font-weight: 700;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .tag-line {
+            color: var(--chumbo);
+            background: var(--osso-2);
+        }
+
+        .card h3 {
+            min-height: 42px;
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        .card-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            color: var(--chumbo);
+            font-size: .76rem;
+        }
+
+        .card-availability {
+            color: var(--vermelho-vivo);
+            font-weight: 700;
+        }
+
+        .card-buy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            margin-top: auto;
+            padding: 12px 16px;
+            color: var(--osso);
+            background: var(--preto);
+            font-size: .74rem;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: background .18s;
+        }
+
+        .card-buy:hover {
+            background: var(--vermelho);
+        }
+
+        .card-buy:focus-visible,
+        .modal-close:focus-visible {
+            outline: 3px solid rgba(179, 31, 46, .42);
+            outline-offset: 3px;
+        }
+
+        .card-buy svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .empty-state {
+            display: none;
+            grid-column: 1 / -1;
+            padding: 58px 24px;
+            color: var(--chumbo);
+            text-align: center;
+            border: 1px dashed #B7B2AA;
+            background: var(--osso-2);
+        }
+
+        .empty-state strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--preto);
+            font-size: 1.1rem;
+        }
+
+        footer {
+            padding: 52px 24px 28px;
+            color: #B9B6B1;
+            text-align: center;
+            background: var(--preto);
+        }
+
+        footer img {
+            width: auto;
+            height: 30px;
+            margin: 0 auto 18px;
+        }
+
+        footer p {
+            font-size: .82rem;
+        }
+
+        footer .small {
+            margin-top: 22px;
+            color: #6E6B67;
+            font-size: .72rem;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(13, 13, 13, .72);
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .modal-box {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            padding: 32px 28px 28px;
+            background: var(--branco);
+            animation: pop .18s ease;
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: scale(.96);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-box h3 {
+            margin-bottom: 6px;
+            font-size: 1.15rem;
+        }
+
+        .modal-sub {
+            margin-bottom: 22px;
+            color: var(--chumbo);
+            font-size: .82rem;
+            line-height: 1.5;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            transition: background .15s;
+        }
+
+        .modal-close:hover {
+            background: var(--osso-2);
+        }
+
+        .modal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mk-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 16px;
+            border: 1.5px solid var(--preto);
+            border-left-width: 5px;
+            font-size: .88rem;
+            font-weight: 700;
+            transition: transform .16s ease, box-shadow .16s ease;
+        }
+
+        .mk-link:hover {
+            transform: translateX(3px);
+            box-shadow: 0 6px 14px rgba(13, 13, 13, .1);
+        }
+
+        .mk-link .mk-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            flex: 0 0 auto;
+            border-radius: 50%;
+            font-size: .95rem;
+        }
+
+        .mk-link .mk-name {
+            flex: 1;
+        }
+
+        .mk-link svg {
+            width: 14px;
+            height: 14px;
+            opacity: .6;
+        }
+
+        .modal-empty {
+            padding: 20px 0;
+            color: var(--chumbo);
+            font-size: .85rem;
+            text-align: center;
+        }
+
+        @media (max-width: 980px) {
+            .product-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-back {
+                margin-left: auto;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .filters {
+                grid-template-columns: 1fr;
+            }
+
+            .clear-filters {
+                width: 100%;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+            }
+
+            .card-body {
+                padding: 14px;
+            }
+
+            .card h3 {
+                min-height: 0;
+                font-size: .92rem;
+            }
+
+            .card-info {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .page-hero {
+                padding: 68px 20px 64px;
+            }
+
+            .products-section {
+                padding: 56px 20px 76px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-media {
+                aspect-ratio: 1.08 / 1;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-wrap">
+            <a href="index.html" class="brand-lockup" aria-label="Voltar para a página inicial Sapatofran">
+                <img src="logoBR.png" alt="Sapatofran">
+            </a>
+            <nav class="nav-links" aria-label="Navegação principal">
+                <a href="index.html">Início</a>
+                <a href="SFprodutos.html" aria-current="page">Produtos</a>
+                <a href="index.html#marca">A marca</a>
+                <a href="index.html#marketplaces">Onde comprar</a>
+            </nav>
+            <a href="index.html" class="nav-back"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="hero-inner">
+                <p class="eyebrow">Catálogo Sapatofran</p>
+                <h1 class="display">Encontre o par que acompanha <em>seu ritmo</em></h1>
+                <p>Explore todos os produtos da marca e filtre a coleção por categoria ou linha. Ao encontrar o seu,
+                    escolha o marketplace de sua preferência para comprar.</p>
+            </div>
+        </section>
+        <div class="bar-row" aria-hidden="true"><span></span><span></span></div>
+
+        <section class="products-section" aria-labelledby="catalog-title">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Todos os produtos</p>
+                    <h2 id="catalog-title" class="display">Nossa coleção</h2>
+                </div>
+                <p class="results-count" id="resultsCount" aria-live="polite"></p>
+            </div>
+
+            <div class="filters" aria-label="Filtros do catálogo">
+                <div class="filter-field">
+                    <label for="categoryFilter">Categoria</label>
+                    <select id="categoryFilter">
+                        <option value="Todos">Todas as categorias</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Unissex">Unissex</option>
+                    </select>
+                </div>
+                <div class="filter-field">
+                    <label for="lineFilter">Linha</label>
+                    <select id="lineFilter">
+                        <option value="Todos">Todas as linhas</option>
+                        <option value="Militares">Militares</option>
+                        <option value="Tênis">Tênis</option>
+                        <option value="Botas">Botas</option>
+                        <option value="Social">Social</option>
+                        <option value="Infantil">Infantil</option>
+                    </select>
+                </div>
+                <button class="clear-filters" id="clearFilters" type="button">Limpar filtros</button>
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+            <div class="empty-state" id="emptyState">
+                <strong>Nenhum produto encontrado</strong>
+                Tente combinar outros filtros para ver mais opções da coleção.
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="logoBR.png" alt="Sapatofran">
+        <p>Sapatofran — calçados nos principais marketplaces do Brasil.</p>
+        <p class="small">© <span id="year"></span> Sapatofran. Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose" type="button" aria-label="Fechar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+            </button>
+            <h3 id="modalTitle">Produto</h3>
+            <p class="modal-sub">Escolha onde comprar este produto:</p>
+            <div class="modal-links" id="modalLinks"></div>
+        </div>
+    </div>
+
+    <script>
+        // Carregar produtos do localStorage (gerenciado via admin.html)
+        let products = [];
+        const STORAGE_KEY = 'sapatofran_products';
+
+        // Dados padrão para referência (se localStorage estiver vazio)
+        const defaultProducts = [
+            {
+                "id": 1,
+                "name": "Bota Coturno Militar Areia",
+                "image": "images/4093-A.jpg",
+                "category": "Masculino",
+                "line": "Militares",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-3958838417-bota-coturno-militar-masculino-areia-adventure-confortavel-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 2,
+                "name": "Tênis Masculino Casual",
+                "image": "images/1313.jpg",
+                "category": "Masculino",
+                "line": "Tênis",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-3964887081-tnis-masculino-sapatnis-casual-confortavel-estiloso-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 3,
+                "name": "Coturno Feminino Cano Baixo",
+                "image": "images/261.jpg",
+                "category": "Feminino",
+                "line": "Botas",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5282711226-coturno-feminino-cano-baixo-solado-tratorado-fivela-outono-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 4,
+                "name": "Tênis Feminino Esportivo Confortável",
+                "image": "images/409PtoPink.jpg",
+                "category": "Feminino",
+                "line": "Tênis",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5247458898-tnis-feminino-polo-respiravel-sapatofran-corrida-caminhada-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 5,
+                "name": "Sapatênis Masculino Confortável",
+                "image": "images/3260.png",
+                "category": "Masculino",
+                "line": "Social",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5770606210-sapatenis-masculino-casual-esporte-fino-trabalho-confortavel-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 6,
+                "name": "Tênis Rodinha Infantil Menino",
+                "image": "images/2502.jpg",
+                "category": "Masculino",
+                "line": "Infantil",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5124806492-tnis-rodinha-infantil-meninos-divertido-removivel-estiloso-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 7,
+                "name": "Tênis Rodinha Infantil Menina",
+                "image": "images/2502MA.jpg",
+                "category": "Feminino",
+                "line": "Infantil",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5124830528-tnis-rodinha-infantil-meninas-divertido-removivel-estiloso-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 8,
+                "name": "Tênis Feminino Casual Branco",
+                "image": "images/9085.jpg",
+                "category": "Feminino",
+                "line": "Tênis",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5665638658-tnis-feminino-casual-branco-academia-classico-original-leve-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 9,
+                "name": "Tênis Masculino Esportivo Confortável",
+                "category": "Masculino",
+                "line": "Tênis",
+                "image": "images/2256.jpg",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5270868328-tnis-masculino-esportivo-academia-caminhada-confortavel-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 10,
+                "name": "Coturno Militar Masculino Cano Médio",
+                "category": "Masculino",
+                "line": "Militares",
+                "image": "images/4092.jpg",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5277357128-bota-coturno-militar-masculino-cano-medio-trilha-tatico-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 11,
+                "name": "Bota Country Feminina Western",
+                "category": "Feminino",
+                "line": "Botas",
+                "image": "images/222.jpg",
+                "links": {
+                    "Mercado Livre": "https://www.mercadolivre.com.br/bota-country-feminina-western-rodeio-preto-salto-ziper/up/MLBU3973660027",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 12,
+                "name": "Bota Over The Knee Zíper Cano Alto",
+                "category": "Feminino",
+                "line": "Botas",
+                "image": "images/180.jpg",
+                "links": {
+                    "Mercado Livre": "https://www.mercadolivre.com.br/bota-over-the-knee-ziper-cano-alto-social-inverno-montaria/up/MLBU3828670534",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 13,
+                "name": "Botinha Feminina Cano Baixo Social",
+                "category": "Feminino",
+                "line": "Botas",
+                "image": "images/211.jpg",
+                "links": {
+                    "Mercado Livre": "https://www.mercadolivre.com.br/botinha-feminina-cano-baixo-social-salto-bico-fino-estilosa/up/MLBU3819239339",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 14,
+                "name": "Bota Cano Longo Militar Couro Legítimo",
+                "category": "Masculino",
+                "line": "Militares",
+                "image": "images/4090.jpg",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-6152918880-bota-couro-legitimo-cano-longo-militar-seguranca-bombeiro-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            },
+            {
+                "id": 15,
+                "name": "Bota Coturno Militar Preto",
+                "category": "Masculino",
+                "line": "Militares",
+                "image": "images/4093-P.jpg",
+                "links": {
+                    "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5897514394-botina-coturno-couro-masculino-preto-resistente-confortavel-_JM",
+                    "Shopee": "",
+                    "Shein": "",
+                    "TikTok Shop": "",
+                    "Dafiti": "",
+                    "Magalu": "",
+                    "Netshoes": "",
+                    "Temu": "",
+                    "Kwai": ""
+                }
+            }
+        ];
+
+        // Carregar dados do localStorage ou usar padrão
+        function initializeProducts() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+
+            if (stored) {
+                try {
+                    const storedProducts = JSON.parse(stored);
+
+                    // Mesclar defaultProducts com storedProducts
+                    // Mantém edições do admin e adiciona novos produtos do código
+                    products = defaultProducts.map(defaultProd => {
+                        const storedProd = storedProducts.find(p => p.id === defaultProd.id);
+                        return storedProd ? storedProd : defaultProd;
+                    });
+
+                    // Adicionar produtos que foram criados no admin (não existem no código)
+                    const newProducts = storedProducts.filter(
+                        storedProd => !defaultProducts.find(p => p.id === storedProd.id)
+                    );
+                    products = [...products, ...newProducts];
+
+                    // Atualizar localStorage com dados mesclados
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+                } catch (e) {
+                    console.error('Erro ao carregar produtos do localStorage:', e);
+                    products = defaultProducts;
+                    localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+                }
+            } else {
+                products = defaultProducts;
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+            }
+        }
+
+        const marketplaceStyle = {
+            "Mercado Livre": { mark: "ML", icon: "fa-solid fa-handshake", bg: "#FFE600", fg: "#2D3277" },
+            "Shopee": { mark: "SP", icon: "fa-solid fa-bag-shopping", bg: "#EE4D2D", fg: "#FFFFFF" },
+            "Shein": { mark: "S", icon: "fa-solid fa-shirt", bg: "#0D0D0D", fg: "#FFFFFF" },
+            "TikTok Shop": { mark: "TK", icon: "fa-brands fa-tiktok", bg: "#0D0D0D", fg: "#25F4EE" },
+            "Dafiti": { mark: "D", icon: "fa-solid fa-shoe-prints", bg: "#E4007C", fg: "#FFFFFF" },
+            "Magalu": { mark: "MG", icon: "fa-solid fa-store", bg: "#0086FF", fg: "#FFFFFF" },
+            "Netshoes": { mark: "NS", icon: "fa-solid fa-person-running", bg: "#D4E600", fg: "#111111" },
+            "Temu": { mark: "T", icon: "fa-solid fa-tags", bg: "#FF8F78", fg: "#FFFFFF" },
+            "Kwai": { mark: "K", icon: "fa-solid fa-film", bg: "#FFBBAD", fg: "#FFFFFF" }
+        };
+
+        const productGrid = document.getElementById('productGrid');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const lineFilter = document.getElementById('lineFilter');
+        const resultsCount = document.getElementById('resultsCount');
+        const emptyState = document.getElementById('emptyState');
+        const arrowIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H9M17 7v8" /></svg>`;
+
+        function renderProducts() {
+            const category = categoryFilter.value;
+            const line = lineFilter.value;
+            const filtered = products.filter(product =>
+                (category === 'Todos' || product.category === category) &&
+                (line === 'Todos' || product.line === line)
+            );
+
+            productGrid.innerHTML = filtered.map((product) => {
+                const productIndex = products.indexOf(product);
+                return `
+                    <article class="card">
+                        <div class="card-media">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy">
+                            <span class="card-badge">${product.category}</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-tags"><span class="tag">${product.category}</span><span class="tag tag-line">${product.line}</span></div>
+                            <h3>${product.name}</h3>
+                            <div class="card-info"><span>Disponível nos canais parceiros</span><span class="card-availability">Ver opções</span></div>
+                            <button class="card-buy" type="button" data-index="${productIndex}">Comprar ${arrowIcon}</button>
+                        </div>
+                    </article>`;
+            }).join('');
+
+            resultsCount.textContent = `${filtered.length} ${filtered.length === 1 ? 'produto encontrado' : 'produtos encontrados'}`;
+            emptyState.style.display = filtered.length ? 'none' : 'block';
+        }
+
+        categoryFilter.addEventListener('change', renderProducts);
+        lineFilter.addEventListener('change', renderProducts);
+        document.getElementById('clearFilters').addEventListener('click', () => {
+            categoryFilter.value = 'Todos';
+            lineFilter.value = 'Todos';
+            renderProducts();
+        });
+
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalLinks = document.getElementById('modalLinks');
+
+        productGrid.addEventListener('click', (event) => {
+            const button = event.target.closest('.card-buy');
+            if (!button) return;
+            openModal(products[button.dataset.index]);
+        });
+
+        function openModal(product) {
+            modalTitle.textContent = product.name;
+            modalLinks.innerHTML = '';
+            const validLinks = Object.entries(product.links).filter(([, url]) => url && url.trim() !== '');
+            if (!validLinks.length) {
+                modalLinks.innerHTML = '<p class="modal-empty">Nenhum link cadastrado ainda para este produto.</p>';
+            } else {
+                validLinks.forEach(([name, url]) => {
+                    const style = marketplaceStyle[name] || { mark: 'LOJA', icon: 'fa-solid fa-store', bg: '#0D0D0D', fg: '#FFFFFF' };
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.className = 'mk-link';
+                    link.style.borderLeftColor = style.bg;
+                    link.innerHTML = `<span class="mk-icon" style="background:${style.bg};color:${style.fg}">${style.mark}</span><span class="mk-name">${name}</span>${arrowIcon}`;
+                    modalLinks.appendChild(link);
+                });
+            }
+            modalOverlay.classList.add('open');
+            document.getElementById('modalClose').focus();
+        }
+
+        function closeModal() { modalOverlay.classList.remove('open'); }
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', (event) => { if (event.target === modalOverlay) closeModal(); });
+        document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Inicializar e renderizar
+        initializeProducts();
+        renderProducts();
+    </script>
+</body>
+
+</html>

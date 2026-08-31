@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Gerenciador de Produtos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            --preto: #0D0D0D;
+            --preto-suave: #171717;
+            --vermelho: #7A1220;
+            --vermelho-vivo: #B31F2E;
+            --osso: #F7F5F2;
+            --osso-2: #EFEBE5;
+            --chumbo: #4A4A4A;
+            --linha: #E4E1DC;
+            --branco: #FFFFFF;
+            --verde: #10B981;
+            --azul: #3B82F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--osso);
+            color: var(--preto);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--preto);
+            color: var(--osso);
+            padding: 20px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 6px;
+            border: none;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--vermelho-vivo);
+            color: var(--branco);
+        }
+
+        .btn-primary:hover {
+            background: var(--vermelho);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--azul);
+            color: var(--branco);
+        }
+
+        .btn-secondary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: var(--verde);
+            color: var(--branco);
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .btn-danger {
+            background: #EF4444;
+            color: var(--branco);
+        }
+
+        .btn-danger:hover {
+            background: #DC2626;
+        }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .panel {
+            background: var(--branco);
+            border: 1px solid var(--linha);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .panel h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--preto);
+        }
+
+        .panel h2 i {
+            color: var(--vermelho-vivo);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-weight: 600;
+            color: var(--chumbo);
+            font-size: 0.85rem;
+        }
+
+        input,
+        textarea,
+        select {
+            padding: 10px 12px;
+            border: 1px solid var(--linha);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--preto);
+            transition: border-color 0.2s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--vermelho-vivo);
+            box-shadow: 0 0 0 3px rgba(179, 31, 46, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .marketplace-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .marketplace-input {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .marketplace-input label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--chumbo);
+        }
+
+        .marketplace-input input {
+            font-size: 0.85rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .form-actions button {
+            flex: 1;
+        }
+
+        .product-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            padding: 14px;
+            border: 1px solid var(--linha);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            gap: 12px;
+            background: var(--osso-2);
+            transition: all 0.2s;
+        }
+
+        .product-item:hover {
+            border-color: var(--vermelho-vivo);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .product-name {
+            font-weight: 600;
+            color: var(--preto);
+            font-size: 0.95rem;
+        }
+
+        .product-meta {
+            font-size: 0.8rem;
+            color: var(--chumbo);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .product-list-container {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .product-list-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .product-list-container::-webkit-scrollbar-track {
+            background: var(--osso-2);
+            border-radius: 3px;
+        }
+
+        .product-list-container::-webkit-scrollbar-thumb {
+            background: var(--linha);
+            border-radius: 3px;
+        }
+
+        .product-list-container::-webkit-scrollbar-thumb:hover {
+            background: var(--chumbo);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--osso) 0%, var(--osso-2) 100%);
+            border: 1px solid var(--linha);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--vermelho-vivo);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--chumbo);
+            margin-top: 4px;
+            text-transform: uppercase;
+        }
+
+        .tools-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .tool-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 2px dashed var(--linha);
+            border-radius: 8px;
+            background: var(--osso-2);
+            cursor: pointer;
+            transition: all 0.2s;
+            gap: 10px;
+        }
+
+        .tool-btn:hover {
+            border-color: var(--vermelho-vivo);
+            background: var(--osso);
+        }
+
+        .tool-btn i {
+            font-size: 1.8rem;
+            color: var(--vermelho-vivo);
+        }
+
+        .tool-btn span {
+            font-weight: 600;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .alert {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-success {
+            background: #D1FAE5;
+            color: #065F46;
+            border: 1px solid #A7F3D0;
+        }
+
+        .alert-error {
+            background: #FEE2E2;
+            color: #7F1D1D;
+            border: 1px solid #FECACA;
+        }
+
+        .alert-info {
+            background: #DBEAFE;
+            color: #0C2340;
+            border: 1px solid #BAE6FD;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--branco);
+            border-radius: 12px;
+            padding: 32px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--chumbo);
+            background: none;
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--preto);
+        }
+
+        .modal h3 {
+            clear: both;
+            margin-bottom: 20px;
+            color: var(--preto);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--chumbo);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: var(--linha);
+            margin-bottom: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .marketplace-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-actions {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-cog"></i> Gerenciador de Produtos Sapatofran</h1>
+            <div class="header-actions">
+                <a href="SFprodutos.html" class="btn btn-secondary" target="_blank">
+                    <i class="fas fa-eye"></i> Ver Catálogo
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="alertContainer"></div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalProducts">0</div>
+                <div class="stat-label">Total de Produtos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalCategories">0</div>
+                <div class="stat-label">Categorias</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalLines">0</div>
+                <div class="stat-label">Linhas</div>
+            </div>
+        </div>
+
+        <div class="layout">
+            <!-- Formulário para adicionar/editar -->
+            <div class="panel">
+                <h2><i class="fas fa-plus-circle"></i> <span id="formTitle">Adicionar Novo Produto</span></h2>
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productName">Nome do Produto *</label>
+                        <input type="text" id="productName" required placeholder="Ex: Bota Coturno Militar Areia">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productCategory">Categoria *</label>
+                            <select id="productCategory" required>
+                                <option value="">Selecione...</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Unissex">Unissex</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productLine">Linha *</label>
+                            <select id="productLine" required>
+                                <option value="">Selecione...</option>
+                                <option value="Militares">Militares</option>
+                                <option value="Tênis">Tênis</option>
+                                <option value="Botas">Botas</option>
+                                <option value="Social">Social</option>
+                                <option value="Infantil">Infantil</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productImage">Caminho da Imagem *</label>
+                        <input type="text" id="productImage" required value="images/">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Links dos Marketplaces</label>
+                        <div class="marketplace-grid">
+                            <div class="marketplace-input">
+                                <label>Mercado Livre</label>
+                                <input type="url" class="marketplace-link" data-marketplace="Mercado Livre"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="marketplace-input">
+                                <label>Shopee</label>
+                                <input type="url" class="marketplace-link" data-marketplace="Shopee"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="marketplace-input">
+                                <label>Shein</label>
+                                <input type="url" class="marketplace-link" data-marketplace="Shein"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="marketplace-input">
+                                <label>TikTok Shop</label>
+                                <input type="url" class="marketplace-link" data-marketplace="TikTok Shop"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="marketplace-input">
+                                <label>Dafiti</label>
+                                <input type="url" class="marketplace-link" data-marketplace="Dafiti"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="marketplace-input">
+                                <label>Magalu</label>
+                                <input type="url" class="marketplace-link" data-marketplace="Magalu"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="marketplace-input">
+                                <label>Netshoes</label>
+                                <input type="url" class="marketplace-link" data-marketplace="Netshoes"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="marketplace-input">
+                                <label>Temu</label>
+                                <input type="url" class="marketplace-link" data-marketplace="Temu"
+                                    placeholder="https://...">
+                            </div>
+                            <div class="marketplace-input">
+                                <label>Kwai</label>
+                                <input type="url" class="marketplace-link" data-marketplace="Kwai"
+                                    placeholder="https://...">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-save"></i> Salvar Produto
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelEditBtn" style="display: none;">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Lista de produtos -->
+            <div class="panel">
+                <h2><i class="fas fa-list"></i> Produtos Cadastrados</h2>
+                <div class="product-list-container" id="productListContainer">
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>Nenhum produto cadastrado ainda</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ferramentas -->
+        <div class="panel">
+            <h2><i class="fas fa-tools"></i> Ferramentas</h2>
+            <div class="tools-section">
+                <button class="tool-btn" id="exportBtn" type="button">
+                    <i class="fas fa-download"></i>
+                    <span>Exportar Dados<br><small style="font-weight: 400; font-size: 0.75rem;">Download
+                            JSON</small></span>
+                </button>
+                <button class="tool-btn" id="importBtn" type="button">
+                    <i class="fas fa-upload"></i>
+                    <span>Importar Dados<br><small style="font-weight: 400; font-size: 0.75rem;">Upload
+                            JSON</small></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeConfirmModal()">×</button>
+            <h3>Confirmar Exclusão</h3>
+            <p>Tem certeza que deseja excluir este produto? Esta ação não pode ser desfeita.</p>
+            <div class="form-actions" style="margin-top: 20px;">
+                <button class="btn btn-danger" id="confirmDeleteBtn">Excluir</button>
+                <button class="btn btn-secondary" onclick="closeConfirmModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <input type="file" id="importFile" accept=".json">
+
+    <script>
+        // ==================== DATA MANAGEMENT ====================
+        const STORAGE_KEY = 'sapatofran_products';
+        let products = [];
+        let editingId = null;
+
+        // Inicializar dados
+        function initializeData() {
+            const stored = localStorage.getItem(STORAGE_KEY);
+            if (stored) {
+                try {
+                    products = JSON.parse(stored);
+                } catch (e) {
+                    console.error('Erro ao carregar dados:', e);
+                    products = [];
+                }
+            } else {
+                // Usar dados padrão se não houver dados salvos
+                products = getDefaultProducts();
+                saveData();
+            }
+            renderProducts();
+            updateStats();
+        }
+
+        // Produtos padrão (para começar)
+        function getDefaultProducts() {
+                return [
+                {
+                    "id": 1,
+                    "name": "Bota Coturno Militar Areia",
+                    "image": "images/4093-A.jpg",
+                    "category": "Masculino",
+                    "line": "Militares",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-3958838417-bota-coturno-militar-masculino-areia-adventure-confortavel-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 2,
+                    "name": "Tênis Masculino Casual",
+                    "image": "images/1313.jpg",
+                    "category": "Masculino",
+                    "line": "Tênis",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-3964887081-tnis-masculino-sapatnis-casual-confortavel-estiloso-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 3,
+                    "name": "Coturno Feminino Cano Baixo",
+                    "image": "images/261.jpg",
+                    "category": "Feminino",
+                    "line": "Botas",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5282711226-coturno-feminino-cano-baixo-solado-tratorado-fivela-outono-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 4,
+                    "name": "Tênis Feminino Esportivo Confortável",
+                    "image": "images/409PtoPink.jpg",
+                    "category": "Feminino",
+                    "line": "Tênis",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5247458898-tnis-feminino-polo-respiravel-sapatofran-corrida-caminhada-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 5,
+                    "name": "Sapatênis Masculino Confortável",
+                    "image": "images/3260.png",
+                    "category": "Masculino",
+                    "line": "Social",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5770606210-sapatenis-masculino-casual-esporte-fino-trabalho-confortavel-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 6,
+                    "name": "Tênis Rodinha Infantil Menino",
+                    "image": "images/2502.jpg",
+                    "category": "Masculino",
+                    "line": "Infantil",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5124806492-tnis-rodinha-infantil-meninos-divertido-removivel-estiloso-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "Tênis Rodinha Infantil Menina",
+                    "image": "images/2502MA.jpg",
+                    "category": "Feminino",
+                    "line": "Infantil",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5124830528-tnis-rodinha-infantil-meninas-divertido-removivel-estiloso-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "Tênis Feminino Casual Branco",
+                    "image": "images/9085.jpg",
+                    "category": "Feminino",
+                    "line": "Tênis",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5665638658-tnis-feminino-casual-branco-academia-classico-original-leve-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "Tênis Masculino Esportivo Confortável",
+                    "category": "Masculino",
+                    "line": "Tênis",
+                    "image": "images/2256.jpg",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5270868328-tnis-masculino-esportivo-academia-caminhada-confortavel-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "Coturno Militar Masculino Cano Médio",
+                    "category": "Masculino",
+                    "line": "Militares",
+                    "image": "images/4092.jpg",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5277357128-bota-coturno-militar-masculino-cano-medio-trilha-tatico-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 11,
+                    "name": "Bota Country Feminina Western",
+                    "category": "Feminino",
+                    "line": "Botas",
+                    "image": "images/222.jpg",
+                    "links": {
+                        "Mercado Livre": "https://www.mercadolivre.com.br/bota-country-feminina-western-rodeio-preto-salto-ziper/up/MLBU3973660027",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 12,
+                    "name": "Bota Over The Knee Zíper Cano Alto",
+                    "category": "Feminino",
+                    "line": "Botas",
+                    "image": "images/180.jpg",
+                    "links": {
+                        "Mercado Livre": "https://www.mercadolivre.com.br/bota-over-the-knee-ziper-cano-alto-social-inverno-montaria/up/MLBU3828670534",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 13,
+                    "name": "Botinha Feminina Cano Baixo Social",
+                    "category": "Feminino",
+                    "line": "Botas",
+                    "image": "images/211.jpg",
+                    "links": {
+                        "Mercado Livre": "https://www.mercadolivre.com.br/botinha-feminina-cano-baixo-social-salto-bico-fino-estilosa/up/MLBU3819239339",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 14,
+                    "name": "Bota Cano Longo Militar Couro Legítimo",
+                    "category": "Masculino",
+                    "line": "Militares",
+                    "image": "images/4090.jpg",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-6152918880-bota-couro-legitimo-cano-longo-militar-seguranca-bombeiro-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                },
+                {
+                    "id": 15,
+                    "name": "Bota Coturno Militar Preto",
+                    "category": "Masculino",
+                    "line": "Militares",
+                    "image": "images/4093-P.jpg",
+                    "links": {
+                        "Mercado Livre": "https://produto.mercadolivre.com.br/MLB-5897514394-botina-coturno-couro-masculino-preto-resistente-confortavel-_JM",
+                        "Shopee": "",
+                        "Shein": "",
+                        "TikTok Shop": "",
+                        "Dafiti": "",
+                        "Magalu": "",
+                        "Netshoes": "",
+                        "Temu": "",
+                        "Kwai": ""
+                    }
+                }
+            ];
+        }
+
+        function saveData() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+        }
+
+        // ==================== FORM HANDLING ====================
+        const form = document.getElementById('productForm');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('productName').value;
+            const category = document.getElementById('productCategory').value;
+            const line = document.getElementById('productLine').value;
+            const image = document.getElementById('productImage').value;
+
+            const links = {};
+            document.querySelectorAll('.marketplace-link').forEach(input => {
+                links[input.dataset.marketplace] = input.value;
+            });
+
+            if (editingId) {
+                // Atualizar produto
+                const product = products.find(p => p.id === editingId);
+                if (product) {
+                    product.name = name;
+                    product.category = category;
+                    product.line = line;
+                    product.image = image;
+                    product.links = links;
+                    showAlert('Produto atualizado com sucesso!', 'success');
+                }
+                editingId = null;
+                document.getElementById('formTitle').textContent = 'Adicionar Novo Produto';
+                document.getElementById('cancelEditBtn').style.display = 'none';
+            } else {
+                // Adicionar novo produto
+                products.push({
+                    id: Date.now(),
+                    name,
+                    category,
+                    line,
+                    image,
+                    links
+                });
+                showAlert('Produto adicionado com sucesso!', 'success');
+            }
+
+            saveData();
+            form.reset();
+            renderProducts();
+            updateStats();
+        });
+
+        document.getElementById('cancelEditBtn').addEventListener('click', () => {
+            editingId = null;
+            form.reset();
+            document.getElementById('formTitle').textContent = 'Adicionar Novo Produto';
+            document.getElementById('cancelEditBtn').style.display = 'none';
+        });
+
+        // ==================== PRODUCT LIST ====================
+        function renderProducts() {
+            const container = document.getElementById('productListContainer');
+
+            if (products.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>Nenhum produto cadastrado ainda</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = products.map(product => `
+                <div class="product-item">
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-meta">
+                            ${product.category} • ${product.line}
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn btn-secondary btn-small" onclick="editProduct(${product.id})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger btn-small" onclick="deleteProduct(${product.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function editProduct(id) {
+            const product = products.find(p => p.id === id);
+            if (!product) return;
+
+            editingId = id;
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productLine').value = product.line;
+            document.getElementById('productImage').value = product.image;
+
+            document.querySelectorAll('.marketplace-link').forEach(input => {
+                input.value = product.links[input.dataset.marketplace] || '';
+            });
+
+            document.getElementById('formTitle').textContent = 'Editar Produto';
+            document.getElementById('cancelEditBtn').style.display = 'inline-flex';
+
+            form.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        let deleteId = null;
+        function deleteProduct(id) {
+            deleteId = id;
+            document.getElementById('confirmModal').classList.add('active');
+        }
+
+        function closeConfirmModal() {
+            document.getElementById('confirmModal').classList.remove('active');
+            deleteId = null;
+        }
+
+        document.getElementById('confirmDeleteBtn').addEventListener('click', () => {
+            products = products.filter(p => p.id !== deleteId);
+            saveData();
+            renderProducts();
+            updateStats();
+            showAlert('Produto excluído com sucesso!', 'success');
+            closeConfirmModal();
+        });
+
+        // ==================== STATS ====================
+        function updateStats() {
+            document.getElementById('totalProducts').textContent = products.length;
+
+            const categories = new Set(products.map(p => p.category)).size;
+            document.getElementById('totalCategories').textContent = categories;
+
+            const lines = new Set(products.map(p => p.line)).size;
+            document.getElementById('totalLines').textContent = lines;
+        }
+
+        // ==================== IMPORT/EXPORT ====================
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            const dataStr = JSON.stringify(products, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `produtos-sapatofran-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+            URL.revokeObjectURL(url);
+            showAlert('Dados exportados com sucesso!', 'success');
+        });
+
+        document.getElementById('importBtn').addEventListener('click', () => {
+            document.getElementById('importFile').click();
+        });
+
+        document.getElementById('importFile').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const imported = JSON.parse(event.target.result);
+                    if (!Array.isArray(imported)) {
+                        showAlert('Arquivo inválido. Deve conter um array de produtos.', 'error');
+                        return;
+                    }
+
+                    if (confirm('Deseja substituir todos os produtos pelos dados importados?')) {
+                        products = imported;
+                        saveData();
+                        renderProducts();
+                        updateStats();
+                        showAlert('Dados importados com sucesso!', 'success');
+                    }
+                } catch (error) {
+                    showAlert('Erro ao importar: arquivo JSON inválido', 'error');
+                }
+            };
+            reader.readAsText(file);
+            e.target.value = '';
+        });
+
+        // ==================== ALERTS ====================
+        function showAlert(message, type = 'info') {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            container.appendChild(alert);
+
+            setTimeout(() => {
+                alert.remove();
+            }, 4000);
+        }
+
+        // ==================== INITIALIZE ====================
+        document.addEventListener('DOMContentLoaded', initializeData);
+    </script>
+</body>
+
+</html>
